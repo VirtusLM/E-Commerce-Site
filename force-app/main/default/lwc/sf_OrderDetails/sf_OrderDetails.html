@@ -1,0 +1,62 @@
+<template>
+    <lightning-card>
+        <div class="firstRow">
+            <div class="orderContainer">
+                <h1 style="font-weight: bold;">Order: </h1>
+                <h1 style="padding-left: 5px;">{orders.Name}</h1>
+            </div>
+            <div class="deliveryContainer">
+                <h1 style="font-weight: bold;">Delivery Status: </h1>
+                <h1 style="padding-left: 5px;">{orders.Status__c}</h1>
+            </div>
+            <div class="totalPriceContainer">
+                <h1 style="font-weight: bold;">Total Price: </h1>
+                <h1 style="padding-left: 5px;">{orders.Total_Price__c}</h1>
+            </div>
+        </div>
+        <div class="secondRow">
+            <div class="shippingAddressContainer">
+                <h1 style="font-weight: bold;">Shipping Address: </h1>
+                <h1 style="padding-left: 5px;">{orders.Account__r.Shipping_Street__c}</h1>
+            </div>
+            <div class="totalQuantityContainer">
+                <h1 style="font-weight: bold;">Total Quantity: </h1>
+                <h1 style="padding-left: 5px;">{orders.Total_Quantity__c}</h1>
+            </div>
+        </div>
+    </lightning-card>
+            <template for:each={orders.Order_Products__r} for:item=product>
+                <div class="productsContainer" key={orders.Id}>
+
+                <lightning-card key={orders.Id}>
+                    <div class="about">
+                    <div class="firstColumn">
+                        <div class="productName">
+                            <h1 style="font-weight: bold;">Product: </h1>
+                            <h1 style="padding-left: 5px;">{product.Product_Name__c}</h1>
+                        </div>
+                        <div class="quantityContainer">
+                            <h1 style="font-weight: bold;">Quantity: </h1>
+                            <h1 style="padding-left: 5px;">{product.Quantity__c}</h1>
+                        </div>
+                        <div class="priceContainer">
+                            <h1 style="font-weight: bold;">Price: </h1>
+                            <h1 style="padding-left: 5px;">{product.Net_Price__c}</h1>
+                        </div>
+                    </div>
+                    <div class="secondColumn">
+                        <div class="descriptionContainer">
+                            <h1 style="font-weight: bold;">Description: </h1>
+                            <h1 style="padding-left: 5px;">{product.Product_Description__c}</h1>
+                        </div>
+
+                    </div>
+                </div>
+                </lightning-card>
+            </div>
+
+            </template>
+    </div>
+
+
+</template>

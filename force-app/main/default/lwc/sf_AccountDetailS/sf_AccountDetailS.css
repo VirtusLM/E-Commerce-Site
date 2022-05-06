@@ -1,0 +1,9 @@
+input {
+    border: none;
+    margin-left: 10px;
+    outline: none;
+}
+
+lightning-input{
+    outline: none;
+}

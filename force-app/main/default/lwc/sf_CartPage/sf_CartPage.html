@@ -1,0 +1,74 @@
+<template>
+    <template if:true={cart}>
+            <lightning-card>
+                <div class="cartTextContainter">
+                    <h1>Name: {name}</h1>
+                    <h1>Status: {status}</h1>
+                    <h1>Total Quantity: {totalQty}</h1>
+                    <h1>Total Price: <lightning-formatted-number value={totalPrice} format-style="currency" currency-code="USD"></lightning-formatted-number></h1>
+                </div>
+                <div class="cartButtonContainer">
+                    <lightning-button onclick={placeOrder} label="Place Order"></lightning-button>
+                    <lightning-button onclick={deleteCart} label="Remove Cart"></lightning-button>
+                </div>
+            </lightning-card>
+    </template>
+    <template if:true={loader}>
+        <div class="demo-only">
+            <div class="slds-spinner_container">
+              <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+              </div>
+            </div>
+          </div>
+    </template>
+    <template if:false={cart}>
+        <h1>No Carts Avaliable</h1>
+    </template>
+    
+     <template if:true={isModalOpen}> 
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC body starts here -->
+               <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <h2>{label}</h2>
+                </div> 
+                <!-- Modal/Popup Box LWC footer starts here -->
+                     <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={closeModal} title="OK">OK</button>
+                </footer> 
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template> 
+
+        <template if:true={cartLineItems} for:each={cartLineItems} for:item="cartItem" for:index="index">
+            <lightning-layout-item data-id="cartItem.Id" key={cartItem.Id} size = "3" class="slds-var-p-around_x-small"> 
+                <div class="product-list">
+                    <lightning-card  title={cartItem.Product_Name__c}>
+                        <lightning-button label="Delete Item" slot="actions" data-id={cartItem.Id} data-index={cartItem.index} onclick={deleteLineItem}></lightning-button>
+
+                        <div class="itemPriceQuantity">
+                            <div class="quantityBox">
+                                <h1>Quantity: </h1>
+                                <input type=number data-id={cartItem.Id} data-index={cartItem.index} value={cartItem.Quantity__c}></input>
+                                <lightning-button data-id={cartItem.Id} data-index={cartItem.index} onclick={changeQuantity} label="Save"></lightning-button>
+                            </div>
+                            <div class="priceBox">
+                                <h1>Price: <lightning-formatted-number value={cartItem.Price__c} format-style="currency" currency-code="USD"></lightning-formatted-number></h1>
+                            </div>
+                        </div>
+
+                        <div class="descriptionBox">
+                            <h2>Description: </h2>
+                            <p>{cartItem.Product_Description__c}</p>
+                        </div>
+                    </lightning-card>
+                </div>
+            </lightning-layout-item> 
+        </template>
+
+</template>

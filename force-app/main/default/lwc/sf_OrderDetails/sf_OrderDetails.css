@@ -1,0 +1,101 @@
+.firstRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: row;
+}
+
+.orderContainer{
+    display: flex;
+    flex: row;
+}
+
+.deliveryContainer{
+    display: flex;
+    flex: row;
+    padding-left: 100px;
+}
+
+.totalPriceContainer{
+    display: flex;
+    flex: row;
+    padding-left: 100px;
+}
+
+.secondRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: row;
+    padding-top: 20px;
+}
+
+.shippingAddressContainer{
+    display: flex;
+    flex: row;
+}
+
+.totalQuantityContainer{
+    display: flex;
+    flex: row;
+    padding-left: 100px;
+}
+
+.viewButton{
+    display: flex;
+    flex: row;
+    padding-left: 100px;
+}
+
+.dataContainer{
+    margin-top: 30px;
+}
+
+.ordersContainer {
+    margin-top: 20px;
+}
+
+.productName{
+    display: flex;
+    flex: row;
+    padding-left: 100px;
+}
+
+.quantityContainer{
+    display: flex;
+    flex: row;
+    padding-left: 100px;
+}
+
+.priceContainer{
+    display: flex;
+    flex: row;
+    padding-left: 100px;
+}
+
+
+.about {
+    display: flex;
+    flex-direction: row;
+}
+
+.firstColumn{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex: column;
+}
+
+.secondColumn{
+    width: 100%;
+}
+
+.productsContainer{
+    padding-top: 40px;
+}
+
+.descriptionContainer{
+    display: flex;
+    flex: row;
+    padding-right: 50px;
+}

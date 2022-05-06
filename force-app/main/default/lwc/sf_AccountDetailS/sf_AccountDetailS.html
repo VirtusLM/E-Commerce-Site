@@ -1,0 +1,39 @@
+<template >
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-account" title="account">
+                <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                  <use xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                </svg>
+                <span class="slds-assistive-text">account</span>
+              </span>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-card__header-title">
+                <a href="#" class="slds-card__header-link slds-truncate" title="Accounts">
+                  <span>{accName}</span>
+                </a>
+              </h2>
+            </div>
+          </header>
+        </div>
+        <div class="acctext">
+            <lightning-input label="Name" onchange={handle_Name_Change} data-id="oppName" value={accName} readonly={editMode}></lightning-input>
+        </div>
+        <div class="acctext">
+            <lightning-input label="Phone Number" onchange={handle_Phone_Change} data-id="oppName" value={accPhone} readonly={editMode}></lightning-input>
+        </div>
+        <div class="acctext">
+            <lightning-input label="Shipping Country" onchange={handle_Country_Change} data-id="oppName" value={shippingCountry} readonly={editMode}></lightning-input>
+        </div>
+        <div class="acctext">
+            <lightning-input label="Postal Code" onchange={handle_PostalCode_Change} data-id="oppName" value={shippingPostalCode} readonly={editMode}></lightning-input>
+        </div>
+        <div class="acctext">
+            <lightning-input label="Address" onchange={handle_Street_Change} data-id="oppName" value={shippingAddress} readonly={editMode}></lightning-input>
+        </div>
+        <lightning-button label={buttonLabel} onclick={editButton}></lightning-button>
+    </article>
+</template>

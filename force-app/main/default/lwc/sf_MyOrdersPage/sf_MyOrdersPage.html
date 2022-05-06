@@ -1,0 +1,37 @@
+<template>
+        <template if:true={orders}>
+            <template for:each={orders} for:item=order>
+                <div class="ordersContainer"  key={order.Id}>
+                <lightning-card>
+                        <div class="firstRow">
+                            <div class="orderContainer">
+                                <h1 style="font-weight: bold;">Order: </h1>
+                                <h1 style="padding-left: 5px;">{order.Name}</h1>
+                            </div>
+                            <div class="deliveryContainer">
+                                <h1 style="font-weight: bold;">Delivery Status: </h1>
+                                <h1 style="padding-left: 5px;">{order.Status__c}</h1>
+                            </div>
+                            <div class="totalPriceContainer">
+                                <h1 style="font-weight: bold;">Total Price: </h1>
+                                <h1 style="padding-left: 5px;">{order.Total_Price__c}</h1>
+                            </div>
+                        </div>
+                        <div class="secondRow">
+                            <div class="shippingAddressContainer">
+                                <h1 style="font-weight: bold;">Shipping Address: </h1>
+                                <h1 style="padding-left: 5px;">{order.Account__r.Shipping_Street__c}</h1>
+                            </div>
+                            <div class="totalQuantityContainer">
+                                <h1 style="font-weight: bold;">Total Quantity: </h1>
+                                <h1 style="padding-left: 5px;">{order.Total_Quantity__c}</h1>
+                            </div>
+                            <div class="viewButton">
+                                <lightning-button data-id={order.Id} onclick={orderDetailsClick} label="View"></lightning-button>
+                            </div>
+                        </div>
+                </lightning-card>
+                </div>
+        </template>
+    </template>
+</template>

@@ -1,0 +1,41 @@
+<template>
+    <template if:true={openModal}> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{header}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <h2 style="text-align: center;">{text}</h2>
+                </div> 
+                    <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={closeModal}>OK</button>
+                </footer> 
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template> 
+    <template if:true={loader}>
+        <div class="demo-only">
+            <div class="slds-spinner_container">
+              <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+              </div>
+            </div>
+          </div>
+    </template>
+    <template if:true={product}>
+        <lightning-card class="product-tile">
+            <img src={product.sf_Image_Url__c} alt="Image"/>
+            <p><lightning-formatted-number value={product.Price__c} format-style="currency" currency-code="USD"></lightning-formatted-number></p>
+            <p class="product-name">{product.Name}</p>
+            <p class="product-desc">{product.Description__c}</p>
+            <div class="input-parent">
+                <span>Quantity</span> <input value={quantity} onchange={changeQuantity}>
+            </div>
+            <p><lightning-button label="Add to Cart" slot="actions" onclick={addProductToCartClick} data-id={product.Id}></lightning-button></p>
+        </lightning-card>
+    </template> 
+</template>

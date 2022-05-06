@@ -1,0 +1,26 @@
+<template>
+    <div class="header-container">
+    <img src="https://i.ibb.co/pfgRMKV/1-23.png" alt="Logo" class="image"/>
+    <lightning-button-menu icon-name="utility:user" alternative-text="Show menu" variant="border-filled">
+        <ul>
+            <li>
+                <lightning-button
+                    label="Account"
+                    class="slds-var-m-around_medium"
+                    onclick={navigateToAcc}
+                ></lightning-button>
+            </li>
+        </ul>
+    </lightning-button-menu>
+    <lightning-button icon-name="utility:cart"  onclick={navigateToCart} label={values} title="Cart"></lightning-button>
+
+    <!-- <template if:true={values.data}>
+        <template for:each={values.data} for:item="value">
+            <lightning-button key={value.id} icon-name="utility:cart"  onclick={navigateToCart} label={value.Total_Quantity__c} title="Cart"></lightning-button>
+        </template>
+    </template>
+    <template if:true={values.error}>
+        <lightning-button key={value.id} icon-name="utility:cart"  onclick={navigateToCart} label={defaultValue} title="Cart"></lightning-button>
+    </template> -->
+    </div>
+</template>

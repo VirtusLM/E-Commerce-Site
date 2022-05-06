@@ -1,0 +1,57 @@
+lightning-formatted-number {
+    position: absolute;
+    font-size: x-large;
+    left: 100px;
+    bottom: 50px;
+    font-family: sans-serif;
+
+
+}
+
+.input-parent {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 50px;
+    text-align: center;
+}
+
+.input-parent span {
+    padding-right: 10px;
+}
+
+
+lightning-button {
+    position:absolute;
+    right: 100px;
+    bottom: 50px;
+
+}
+
+.product-name {
+    color: black;
+    font-size: x-large;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: sans-serif;
+  
+
+}
+
+.product-desc {
+    padding: 0 20px;
+    margin: 0 300px;
+    text-align: center;
+}
+
+img{
+    width: 30%;
+    height: auto;
+    margin: 0 35%;
+ 
+    
+}

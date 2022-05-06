@@ -1,0 +1,74 @@
+<template>
+    <template if:true={products}>
+        <div class="slds-align_absolute-center">
+            <lightning-input type="search"
+                onkeypress={handleEnter}
+                class="slds-var-m-bottom_medium"
+                placeholder="Search for products"
+                value={searchTerm}>
+            </lightning-input>
+        </div>
+    </template>
+        <template if:true={openModal}> 
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                         <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{header}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <h2 style="text-align: center;">{text}</h2>
+                    </div> 
+                        <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_brand" onclick={closeModal}>OK</button>
+                    </footer> 
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template> 
+    <template if:true={loader}>
+        <div class="demo-only">
+            <div class="slds-spinner_container">
+              <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+              </div>
+            </div>
+          </div>
+    </template>
+        <lightning-layout multiple-rows="true" pull-to-boundary="small"> 
+            <template id={key} for:each={products} for:item="product">
+                <lightning-layout-item key={product.Name} size = "3" class="slds-var-p-around_x-small"> 
+                    <div class="product-tile">
+                        <lightning-card class="product-tile">
+                            <a onclick={productDetailsClick}>
+                                <img src={product.sf_Image_Url__c} alt="Image" data-id={product.Id}></img>
+                                <p class="product-name" data-id={product.Id}>{product.Name}</p>
+                            </a> 
+                            <p><lightning-formatted-number value={product.Price__c} format-style="currency" currency-code="USD"></lightning-formatted-number></p>
+                            <p><lightning-button label="Add to Cart" slot="actions" onclick={addProductToCartClick} data-id={product.Id}></lightning-button></p>
+                            <p slot=card>"footer">Card Footer</p>                                                   
+                        </lightning-card>  
+                    </div>
+                </lightning-layout-item> 
+            </template>
+        </lightning-layout>
+        <template if:false={resultProducts}>
+            <div class="slds-align_absolute-center slds-var-m-vertical_small">
+                We did not find results...
+            </div>
+        </template>
+        <div class="customPagination" style="text-align: center;">
+            <template for:each={paginationRange} for:item="pageNumber">
+                <a class="slds-button slds-button_neutral" onclick={handlePaginationClick}
+                key={pageNumber}
+                data-target-number={pageNumber}>{pageNumber}</a>
+            </template>
+        </div>
+</template> 
+
+
+
+
+
+
