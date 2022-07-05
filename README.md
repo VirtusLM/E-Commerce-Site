@@ -2,9 +2,9 @@
 
 ![Screenshot from 2022-04-06 01-17-48](https://user-images.githubusercontent.com/79991413/177425261-2ec4dd36-e79c-48a9-b371-4ad9ea8f1242.png)
 
-![Screenshot from 2022-04-06 01-19-22](https://user-images.githubusercontent.com/79991413/177425322-9cb595a4-8f03-4d3e-a5f5-aa3591eccace.png)
-
 ![Screenshot from 2022-04-06 01-20-17](https://user-images.githubusercontent.com/79991413/177425344-99e9d7a4-db5c-48c3-88d0-b00a219e3582.png)
+
+![Screenshot from 2022-04-06 01-19-22](https://user-images.githubusercontent.com/79991413/177425322-9cb595a4-8f03-4d3e-a5f5-aa3591eccace.png)
 
 # Salesforce DX Project: Next Steps
 
